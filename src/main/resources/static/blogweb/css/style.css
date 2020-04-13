@@ -1,0 +1,41 @@
+@font-face {
+    font-family: huati;
+    src: url("../fonts/huati.TTF");
+}
+
+/*****************************************************************************************/
+
+body{
+    background-color: #F3F4F5;
+}
+
+/*****************************************************************************************/
+
+.navbar-default{
+    background-color: #fff;
+    border-color: #fff;
+}
+.navbar-right a img{
+    width: 17px;
+    height: 17px;
+}
+.navbar-brand{
+    font-family: huati;
+    font-size: 40px;
+    padding-top: 17px;
+}
+
+/*****************************************************************************************/
+
+.dropdown-menu li{
+    margin: 5px 0px;
+}
+.dropdown-menu .glyphicon-book{
+    color: rgba(204,204,204,0.5);
+}
+.dropdown-menu .glyphicon-folder-open{
+    color: rgba(204,204,204,0.5);
+}
+.dropdown-menu .glyphicon-question-sign{
+    color: rgba(204,204,204,0.5);
+}

@@ -1,0 +1,108 @@
+.container{
+    background-color: #ffffff;
+    margin-bottom: 100px;
+}
+.my-left{
+    width: 15%;
+    float: left;
+    padding-top: 24px;
+}
+.my-right{
+    width: 85%;
+    float: right;
+    margin-right: -15px;
+    padding: 24px;
+    border-left: 1px #eee solid;
+}
+.blog{
+    border: 1px #ccc solid;
+}
+.my-left .nav a{
+    color: #4d4d4d;
+}
+.my-left .nav a:hover{
+    background-color: #D92E2E;
+    color: #eee;
+}
+
+/*****************************************************************************************/
+
+#title{
+    margin-bottom: 24px;
+}
+.tools{
+    min-height: 45px;
+    border-bottom: 1px #ccc solid;
+    background-color: #f8f8f8;
+}
+.edit{
+    min-height: 700px;
+}
+
+/*****************************************************************************************/
+
+
+/*****************************************************************************************/
+
+.button button{
+    background-color: #fff;
+    color: #D92E2E;
+    border-color: #D92E2E;
+    transition: color .15s
+    ease-in-out,background-color .15s
+    ease-in-out,border-color .15s
+    ease-in-out,box-shadow .15s
+    ease-in-out;
+    margin: 24px;
+}
+.button .btn-primary:hover,.button .btn:hover{
+    background-color: #D92E2E;
+    color: #fff;
+    border-color: #D92E2E;
+}
+.button .btn-primary:active,.button .btn:active{
+    background-color: #D92E2E;
+    color: #fff;
+    border-color: #D92E2E;
+}
+.button .btn-primary:visited,.button .btn:visited{
+    background-color: #D92E2E;
+    color: #fff;
+    border-color: #D92E2E;
+}
+.button .btn-primary:focus,.button .btn:focus{
+    background-color: #D92E2E;
+    color: #fff;
+    border-color: #D92E2E;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

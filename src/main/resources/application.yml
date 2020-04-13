@@ -1,0 +1,21 @@
+# 端口号
+server:
+  port: 8081
+
+# 禁用缓存
+spring:
+  thymeleaf:
+    cache: false
+
+# 数据库连接
+  datasource:
+    username: root
+    password: root
+    url: jdbc:mysql://localhost:3306/blog?useUnicode=true&characterEncoding=utf8
+    driver-class-name: com.mysql.jdbc.Driver
+#    url: jdbc:mysql://localhost:3306/blog?useSSL=false&serverTimezone=Asia/Shanghai
+ #   driver-class-name: com.mysql.cj.jdbc.Driver
+
+
+  messages:
+    basename: i18n.login

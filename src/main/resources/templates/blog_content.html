@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th = "http://www.thymeleaf.org">
+<head>
+    <title th:text="${blog.getTitle()}">博客标题</title>
+    <link rel="icon" type="image/x-icon" href="../static/blogweb/img/cat.svg">
+    <link rel="stylesheet" type="text/css" href="../static/blogweb/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="../static/blogweb/css/normalize.css">
+    <link rel="stylesheet" type="text/css" href="../static/blogweb/css/style.css">
+    <link rel="stylesheet" type="text/css" href="../static/blogweb/css/content.css">
+    <script type="text/javascript" src="../static/blogweb/js/jquery-3.4.1.js"></script>
+    <script type="text/javascript" src="../static/blogweb/js/bootstrap.js"></script>
+    <style>
+        .nav > li > a:focus {
+            text-decoration: none;
+            background-color: #fff;
+        }
+        .my-right .project:hover{
+            background-color: #f8f8f8;
+        }
+        .my-right .project .p-title h4 a{
+            color: #000;
+        }
+        .my-right .project .p-title h4 a:hover{
+            text-decoration: none;
+            color: #cc8100;
+        }
+        .my-right .project .p-title h4 a:focus{
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/blog" style="color: #333; padding-top: 3px;"><img style="" th:src="@{../static/blogweb/img/cat.svg}"></a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="/blog_edit" target="_blank"><img src="../static/blogweb/img/csdn-write.png"> <span style="color: #D92E2E">写博客</span></a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">[[${session.loginUser}]]<span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#"><span class="glyphicon glyphicon-book"></span> &nbsp;&nbsp;&nbsp;&nbsp;我的博客</a></li>
+                        <li><a href="#"><span class="glyphicon glyphicon-folder-open"></span> &nbsp;&nbsp;&nbsp;&nbsp;管理博客</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li><a href="#"><span class="glyphicon glyphicon-question-sign"></span> &nbsp;&nbsp;&nbsp;&nbsp;帮助</a></li>
+                    </ul>
+                </li>
+            </ul>
+            <form class="navbar-form navbar-right">
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Search">
+                </div>
+                <button type="submit" class="btn btn-default btn-danger"><span class="glyphicon glyphicon-search"></span></button>
+            </form>
+        </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+</nav>
+
+<div class="container">
+    <div class="my-left">
+        <div class="home">
+            <p class="s-1">
+                <img src="../static/blogweb/img/lou.jpg" class="head">
+                <span style="color: #ffa200;display: inline">喵天澜</span>
+                <br>
+                <span style="font-family: '楷体';padding: 0px 24px;float: right">靡不有初，鲜克有终</span>
+            </p>
+            <hr>
+            <p class="s-2">
+                <a href="https://github.com/wonixmtl" target="_blank" title="GitHub"><img src="../static/blogweb/img/github.png"></a>
+                <a href="https://blog.csdn.net/qq_35383218" target="_blank" title="CSDN"><img src="../static/blogweb/img/csdn.png"></a>
+                <a href="https://space.bilibili.com/19935498" target="_blank" title="bilibili"><img src="../static/blogweb/img/bilibili.png"></a>
+            </p>
+        </div>
+        <div class="newBlog">
+            <p class="s-title">最新文章</p>
+            <ul class="nav nav-pills nav-stacked">
+                <li role="presentation"><a href="#">数据科学导论</a></li>
+                <li role="presentation"><a href="#">数字签名-RSA编码实验</a></li>
+                <li role="presentation"><a href="#">k-means算法</a></li>
+                <li role="presentation"><a href="#">RSA算法演示实验</a></li>
+                <li role="presentation"><a href="#">MD5</a></li>
+            </ul>
+        </div>
+        <div class="tag">
+            <p class="s-title">分类专栏</p>
+            <ul class="nav nav-pills nav-stacked">
+                <li role="presentation"><a href="#"><span class="glyphicon glyphicon-tags"></span> Java</a></li>
+                <li role="presentation"><a href="#"><span class="glyphicon glyphicon-tags"></span> Python</a></li>
+                <li role="presentation"><a href="#"><span class="glyphicon glyphicon-tags"></span> MySQL</a></li>
+                <li role="presentation"><a href="#"><span class="glyphicon glyphicon-tags"></span> Linux</a></li>
+                <li role="presentation"><a href="#"><span class="glyphicon glyphicon-tags"></span> Spring</a></li>
+            </ul>
+        </div>
+        <div class="archive">
+            <p class="s-title">归档</p>
+            <ul class="nav nav-pills nav-stacked">
+                <li role="presentation"><a href="#">2019年11月</a></li>
+                <li role="presentation"><a href="#">2019年10月</a></li>
+                <li role="presentation"><a href="#">2019年6月</a></li>
+                <li role="presentation"><a href="#">2019年1月</a></li>
+                <li role="presentation"><a href="#">2018年12月</a></li>
+            </ul>
+        </div>
+        <div class="footer">
+            footer
+        </div>
+    </div>
+
+    <div class="my-right">
+        <div class="title">
+            <div class="main">
+                <img src="../static/blogweb/img/blog.png">
+                <h1 th:text="${blog.getTitle()}">博客标题</h1>
+            </div>
+            <div class="vice">
+                <span th:text="${#dates.format(blog.getUpdateTime(),'yyyy-MM-dd')}">2019-11-28</span>
+                <span><a class="pro">default</a></span>
+                <a class="edit">编辑</a>
+            </div>
+        </div>
+        <div class="content">
+            [(${blog.getHcontent()})]
+        </div>
+    </div>
+</div>
+</body>
+</html>

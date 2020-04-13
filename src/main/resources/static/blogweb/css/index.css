@@ -1,0 +1,148 @@
+body{
+    background: url("../img/bg.jpg") repeat;
+}
+
+/*****************************************************************************************/
+
+.setting{
+    min-height: 34px;
+    width: 100%;
+}
+.setting a{
+    float: right;
+    font-size: 13px;
+}
+
+/*****************************************************************************************/
+
+.my-left{
+    width: 25%;
+    float: left;
+    padding-top: 24px;
+}
+.my-left div{
+    background-color: #fff;
+    margin-bottom: 5px;
+    padding-bottom: 10px;
+}
+
+.my-left .nav a{
+    color: #ffa200;
+}
+.my-left .nav a:hover{
+    background-color: #fff;
+    color: #cc8100;
+}
+.my-left .nav a .glyphicon-tags{
+    padding-right: 15px;
+}
+.my-left .home .head{
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    margin: 10px 15px;
+}
+.my-left .home .s-1{
+    cursor: pointer;
+}
+.my-left .home .s-2{
+    text-align: center;
+    cursor: pointer;
+}
+.my-left .home .s-2 img{
+    padding: 0 10px;
+}
+
+/*****************************************************************************************/
+
+.my-right{
+    width: 74%;
+    float: right;
+    padding-top: 24px;
+}
+.my-right .b-title{
+    min-height: 48px;
+}
+.my-right .b-title,.my-right .project{
+    background-color: #fff;
+    margin-bottom: 1px;
+}
+.my-right .project{
+    min-height: 120px;
+    padding: 12px 24px;
+}
+.my-right .b-title div span{
+    padding: 0 24px;
+    cursor: pointer;
+}
+.my-right .b-title div{
+    width: 50%;
+    float: right;
+    padding: 12px 0;
+}
+.my-right .b-title div span a{
+    color: #4d4d4d;
+}
+.my-right .b-title div span a:hover{
+    text-decoration: none;
+    color: #D92E2E;
+}
+.my-right .b-title div span a:focus{
+    text-decoration: none;
+}
+.my-right .project .p-title{
+    padding-bottom: 5px;
+    text-indent: 10px;
+}
+.my-right .project .p-describe{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+}
+.my-right .project .p-footer .p-choose a{
+    padding: 0px 5px;
+    color: #ffa200;
+    float: right;
+}
+.my-right .project .p-footer .p-choose a:hover{
+    text-decoration: none;
+    color: #cc8100;
+    cursor: pointer;
+}
+
+/*****************************************************************************************/
+
+.s-title{
+    background-color: #f5f5f5;
+    font-weight: bold;
+    padding: 10px 15px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

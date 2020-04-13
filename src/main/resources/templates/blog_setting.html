@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th = "http://www.thymeleaf.org">
+<head>
+    <title>文章管理-Blog</title>
+    <link rel="icon" type="image/x-icon" href="../static/blogweb/img/cat.svg">
+    <link rel="stylesheet" type="text/css" href="../static/blogweb/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="../static/blogweb/css/bootstrap-select.css">
+    <link rel="stylesheet" type="text/css" href="../static/blogweb/css/normalize.css">
+    <link rel="stylesheet" type="text/css" href="../static/blogweb/css/style.css">
+    <link rel="stylesheet" type="text/css" href="../static/blogweb/css/setting.css">
+    <script type="text/javascript" src="../static/blogweb/js/jquery-3.4.1.js"></script>
+    <script type="text/javascript" src="../static/blogweb/js/bootstrap.js"></script>
+    <script type="text/javascript" src="../static/blogweb/js/bootstrap-select.js"></script>
+    <script type="text/javascript" src="../static/blogweb/js/wangEditor.min.js"></script>
+    <style>
+        .nav > li > a:focus {
+            text-decoration: none;
+            background-color: #fff;
+        }
+    </style>
+</head>
+<body>
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/blog" style="color: #333; padding-top: 3px;"><img style="" th:src="@{../static/blogweb/img/cat.svg}"></a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="/blog_edit" target="_blank"><img src="../static/blogweb/img/csdn-write.png"> <span style="color: #D92E2E">写博客</span></a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">[[${session.loginUser}]]<span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#"><span class="glyphicon glyphicon-book"></span> &nbsp;&nbsp;&nbsp;&nbsp;我的博客</a></li>
+                        <li><a href="#"><span class="glyphicon glyphicon-folder-open"></span> &nbsp;&nbsp;&nbsp;&nbsp;管理博客</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li><a href="#"><span class="glyphicon glyphicon-question-sign"></span> &nbsp;&nbsp;&nbsp;&nbsp;帮助</a></li>
+                    </ul>
+                </li>
+            </ul>
+            <form class="navbar-form navbar-right">
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Search">
+                </div>
+                <button type="submit" class="btn btn-default btn-danger"><span class="glyphicon glyphicon-search"></span></button>
+            </form>
+        </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+</nav>
+
+<!--<div class="bg"></div>-->
+
+<div class="container">
+    <div class="my-left">
+        <ul class="nav nav-pills nav-stacked">
+            <li role="presentation" data-toggle="modal" data-target="#myModal"><a href="#">Markdown编辑器</a></li>
+            <li role="presentation"><a href="/blog_edit">富文本编辑器</a></li>
+            <li role="presentation"><a href="/blog" target="_blank">查看主页</a></li>
+        </ul>
+        <hr>
+        <ul class="nav nav-pills nav-stacked">
+            <li role="presentation"  class="active"><a href="#"  style="background-color: #D92E2E">文章管理</a></li>
+            <li role="presentation"><a href="#">项目管理</a></li>
+            <li role="presentation"><a href="/tag_setting">分类标签</a></li>
+        </ul>
+        <hr>
+    </div>
+    <div class="my-right">
+        <div class="search">
+            <form>
+                <label style="margin-right: 5px;">筛选: </label>
+                <select class="selectpicker" title="年" id="year">
+                    <option></option>
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                </select>
+                <select class="selectpicker" title="月" id="month">
+                    <option></option>
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                </select>
+                <select class="selectpicker" title="项目名称" id="proName">
+                    <option></option>
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                </select>
+                <select class="selectpicker" title="分类标签" id="tag">
+                    <option></option>
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                </select>
+                <input type="text" class="form-control" placeholder="请输入标题关键字" style="width: 25%;display: inline;margin-right: 30px;">
+                <button class="btn btn-danger" type="submit" style="width: 8%">搜索</button>
+            </form>
+        </div>
+        <div class="content">
+            <div class="blog">
+                <div class="title"><h4><a title="编辑">MySQL limit用法及limit -1错误</a></h4></div>
+                <div class="footer">
+                    <span class="glyphicon glyphicon-tags" style="margin-right: 20px;color: #8c8c8c;"> Java</span>
+                    <span style="color: #8c8c8c">2019年11月10日</span>
+                    <span class="choose">
+                            <a style="border-right: #ccc 1px solid;color: #349EDF;">查看</a>
+                            <a style="border-right: #ccc 1px solid;color: #349EDF;">置顶</a>
+                            <a style="color: #D92E2E;">删除</a>
+                        </span>
+                </div>
+            </div>
+            <div class="blog">
+                <div class="title"><h4><a title="编辑">MySQL limit用法及limit -1错误</a></h4></div>
+                <div class="footer">
+                    <span class="glyphicon glyphicon-tags" style="margin-right: 20px;color: #8c8c8c;"> Java</span>
+                    <span style="color: #8c8c8c">2019年11月10日</span>
+                    <span class="choose">
+                            <a style="border-right: #ccc 1px solid;color: #349EDF;">查看</a>
+                            <a style="border-right: #ccc 1px solid;color: #349EDF;">置顶</a>
+                            <a style="color: #D92E2E;">删除</a>
+                        </span>
+                </div>
+            </div>
+            <div class="blog">
+                <div class="title"><h4><a title="编辑">MySQL limit用法及limit -1错误</a></h4></div>
+                <div class="footer">
+                    <span class="glyphicon glyphicon-tags" style="margin-right: 20px;color: #8c8c8c;"> Java</span>
+                    <span style="color: #8c8c8c">2019年11月10日</span>
+                    <span class="choose">
+                            <a style="border-right: #ccc 1px solid;color: #349EDF;">查看</a>
+                            <a style="border-right: #ccc 1px solid;color: #349EDF;">置顶</a>
+                            <a style="color: #D92E2E;">删除</a>
+                        </span>
+                </div>
+            </div>
+            <div class="blog">
+                <div class="title"><h4><a title="编辑">MySQL limit用法及limit -1错误</a></h4></div>
+                <div class="footer">
+                    <span class="glyphicon glyphicon-tags" style="margin-right: 20px;color: #8c8c8c;"> Java</span>
+                    <span style="color: #8c8c8c">2019年11月10日</span>
+                    <span class="choose">
+                            <a style="border-right: #ccc 1px solid;color: #349EDF;">查看</a>
+                            <a style="border-right: #ccc 1px solid;color: #349EDF;">置顶</a>
+                            <a style="color: #D92E2E;">删除</a>
+                        </span>
+                </div>
+            </div>
+            <div class="blog">
+                <div class="title"><h4><a title="编辑">MySQL limit用法及limit -1错误</a></h4></div>
+                <div class="footer">
+                    <span class="glyphicon glyphicon-tags" style="margin-right: 20px;color: #8c8c8c;"> Java</span>
+                    <span style="color: #8c8c8c">2019年11月10日</span>
+                    <span class="choose">
+                            <a style="border-right: #ccc 1px solid;color: #349EDF;">查看</a>
+                            <a style="border-right: #ccc 1px solid;color: #349EDF;">置顶</a>
+                            <a style="color: #D92E2E;">删除</a>
+                        </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" style="z-index: 10002;">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel" style="color: #D92E2E;">提示</h4>
+            </div>
+            <div class="modal-body">
+                暂未嵌入Markdown编辑器...
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    $(function () {
+        $('.my-left ul li:first').on('shown.bs.modal', function () {
+            $('#myInput').focus()
+        })
+        $("#year").parent().css({"width":"8%" , "margin-right":"10px"})
+        $("#month").parent().css({"width":"8%" , "margin-right":"25px"})
+        $("#proName").parent().css({"width":"20%" , "margin-right":"10px"})
+        $("#tag").parent().css({"width":"12%" , "margin-right":"25px"})
+    })
+</script>
+</body>
+</html>

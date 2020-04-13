@@ -1,0 +1,136 @@
+.container{
+    background-color: #ffffff;
+    margin-bottom: 100px;
+    min-height: 100%;
+}
+.my-left{
+    width: 15%;
+    float: left;
+    padding-top: 24px;
+}
+.my-right{
+    width: 85%;
+    float: right;
+    min-height: 100%;
+    margin-right: -15px;
+    padding: 24px;
+    border-left: 1px #eee solid;
+}
+.my-left .nav a{
+    color: #4d4d4d;
+}
+.my-left .nav a:hover{
+    background-color: #D92E2E;
+    color: #eee;
+}
+
+/*****************************************************************************************/
+
+.search{
+    height: 64px;
+    padding: 16px;
+    margin-top: 16px;
+    background-color: #f2f5f7;
+}
+
+/*****************************************************************************************/
+
+.content .blog{
+    min-height: 85px;
+    padding: 16px 0;
+    background-color: #fff;
+    border-bottom: #ddd 1px dotted;
+}
+.content .blog .title h4 a{
+    color: #4d4d4d;
+}
+.content .blog .title h4 a:hover{
+    text-decoration: none;
+    color: #D92E2E;
+    transition: color .15s
+    ease-in-out,background-color .15s
+    ease-in-out,border-color .15s
+    ease-in-out,box-shadow .15s
+    ease-in-out;
+    cursor: pointer;
+}
+.content .blog .footer{
+    font-size: 12px;
+}
+.content .blog .footer .choose{
+    float: right;
+}
+.content .blog .footer .choose a{
+    padding: 0 5px;
+}
+.content .blog .footer .choose a:hover{
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/*****************************************************************************************/
+
+.my-right .create a{
+    color: #D92E2E;
+    border-color: #D92E2E;
+}
+.my-right .create a:hover{
+    color: #fff;
+    background-color: #D92E2E;
+    border-color: #D92E2E;
+}
+.my-right .tag .myRow{
+    min-height: 97px;
+    padding: 24px 0;
+}
+.my-right .tag .myRow:hover{
+    background-color: #f8f8f8;
+}
+.my-right .tag .myRow .col-sm-4,.my-right .tag .myRow .col-sm-1{
+    padding: 14px 0;
+}
+.my-right .tag .myRow .col-sm-1{
+    text-align: center;
+}
+.my-right .tag .myRow .col-sm-7 img{
+    margin-left: 24px;
+}
+.my-right .tag .tag-footer{
+    border-top: #ddd 1px solid;
+    margin: 0 -15px;
+}
+.my-right .tag .myRow .col-sm-4 .choose{
+    margin-left: -30px;
+}
+.my-right .tag .myRow .col-sm-4 .choose a{
+    padding: 0 5px;
+}
+.my-right .tag .myRow .col-sm-4 .choose a:hover{
+    text-decoration: none;
+    cursor: pointer;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

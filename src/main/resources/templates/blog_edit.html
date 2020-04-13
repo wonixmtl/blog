@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>写文章-Blog</title>
+    <link rel="icon" type="image/x-icon" href="../static/blogweb/img/cat.svg">
+    <link rel="stylesheet" type="text/css" href="../static/blogweb/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="../static/blogweb/css/bootstrap-select.css">
+    <link rel="stylesheet" type="text/css" href="../static/blogweb/css/normalize.css">
+    <link rel="stylesheet" type="text/css" href="../static/blogweb/css/style.css">
+    <link rel="stylesheet" type="text/css" href="../static/blogweb/css/edit.css">
+    <script type="text/javascript" src="../static/blogweb/js/jquery-3.4.1.js"></script>
+    <script type="text/javascript" src="../static/blogweb/js/bootstrap.js"></script>
+    <script type="text/javascript" src="../static/blogweb/js/bootstrap-select.js"></script>
+    <script type="text/javascript" src="../static/blogweb/js/wangEditor.min.js"></script>
+    <style>
+        .nav > li > a:focus {
+            text-decoration: none;
+            background-color: #fff;
+        }
+    </style>
+</head>
+<body>
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/blog" style="color: #333; padding-top: 3px;"><img style="" th:src="@{../static/blogweb/img/cat.svg}"></a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="/blog_edit" target="_blank"><img src="../static/blogweb/img/csdn-write.png"> <span style="color: #D92E2E">写博客</span></a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">[[${session.loginUser}]]<span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#"><span class="glyphicon glyphicon-book"></span> &nbsp;&nbsp;&nbsp;&nbsp;我的博客</a></li>
+                        <li><a href="#"><span class="glyphicon glyphicon-folder-open"></span> &nbsp;&nbsp;&nbsp;&nbsp;管理博客</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li><a href="#"><span class="glyphicon glyphicon-question-sign"></span> &nbsp;&nbsp;&nbsp;&nbsp;帮助</a></li>
+                    </ul>
+                </li>
+            </ul>
+            <form class="navbar-form navbar-right">
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Search">
+                </div>
+                <button type="submit" class="btn btn-default btn-danger"><span class="glyphicon glyphicon-search"></span></button>
+            </form>
+        </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+</nav>
+
+<!--<div class="bg"></div>-->
+
+<div class="container">
+    <div class="my-left">
+        <ul class="nav nav-pills nav-stacked">
+            <li role="presentation" data-toggle="modal" data-target="#myModal"><a href="#">Markdown编辑器</a></li>
+            <li role="presentation" class="active"><a href="#" style="background-color: #D92E2E">富文本编辑器</a></li>
+            <li role="presentation"><a href="/blog" target="_blank">查看主页</a></li>
+        </ul>
+        <hr>
+        <ul class="nav nav-pills nav-stacked">
+            <li role="presentation"><a href="/blog_setting">文章管理</a></li>
+            <li role="presentation"><a href="#">项目管理</a></li>
+            <li role="presentation"><a href="/tag_setting">分类标签</a></li>
+        </ul>
+        <hr>
+    </div>
+    <div class="my-right">
+        <form th:action="@{/blog_edit}" method="post">
+            <div id="title">
+                <input type="text" name="title" class="form-control" placeholder="输入文章标题" maxlength="64" style="color: #4d4d4d;background-color: #efefef;height: 40px;">
+            </div>
+            <div class="blog">
+                <input type="hidden" name="content" value="" id="content">
+                <input type="hidden" name="hcontent" value="" id="hcontent">
+                <div id="tools" class="tools" style="padding: 8px 0px;"></div>
+                <div id="edit" class="edit"></div>
+            </div>
+            <div style="margin: 24px;">
+                <label>文章标签: </label>
+                <div>
+                    <select class="selectpicker" title="请选择">
+                        <option></option>
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+                    </select>
+                </div>
+            </div>
+            <div class="button">
+                <button type="submit" class="btn btn-primary">发布博客</button>
+                <button type="button" class="btn btn-primary">保存为草稿</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" style="z-index: 10002;">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel" style="color: #D92E2E;">提示</h4>
+            </div>
+            <div class="modal-body">
+                暂未嵌入Markdown编辑器...
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    var E = window.wangEditor
+    var edit =  new E("#tools","#edit")
+    edit.customConfig.menus = [
+        'head',  // 标题
+        'bold',  // 粗体
+        'fontSize',  // 字号
+        // 'fontName',  // 字体
+        'italic',  // 斜体
+        'underline',  // 下划线
+        'strikeThrough',  // 删除线
+        'foreColor',  // 文字颜色
+        // 'backColor',  // 背景颜色
+        'link',  // 插入链接
+        'list',  // 列表
+        'justify',  // 对齐方式
+        'quote',  // 引用
+        // 'emoticon',  // 表情
+        'image',  // 插入图片
+        'table',  // 表格
+        // 'video',  // 插入视频
+        'code',  // 插入代码
+        'undo',  // 撤销
+        'redo'  // 重复
+    ]
+    edit.customConfig.uploadImgShowBase64 = true   // 使用 base64 保存图片
+    edit.create()
+
+    $(function () {
+        $('.my-left ul li:first').on('shown.bs.modal', function () {
+            $('#myInput').focus()
+        })
+        $(":submit").click(function () {
+            if ($("#title input").val() == "" || edit.txt.text() == "")
+            {
+                alert("标题和内容不可为空")
+                return false
+            }
+            else
+            {
+                $("#content").val(edit.txt.text())
+                $("#hcontent").val(edit.txt.html())
+            }
+        })
+    })
+</script>
+</body>
+</html>

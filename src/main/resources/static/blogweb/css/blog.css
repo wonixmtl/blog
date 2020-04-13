@@ -1,0 +1,94 @@
+.container .project{
+    background-color: #fff;
+    min-height: 120px;
+    padding: 15px;
+    margin: 0 -15px 10px;
+}
+.container .project .icon{
+    float: left;
+    width: 90px;
+    height: 90px;
+    text-align: center;
+    padding-top: 13px;
+    margin-right: 15px;
+}
+
+/*****************************************************************************************/
+
+.container .content{
+    margin: 0 -15px;
+}
+.container .content .blog{
+    min-height: 100px;
+    background-color: #fff;
+    padding: 24px 24px 0;
+}
+.container .content .blog a{
+    color: #4d4d4d;
+    cursor: pointer;
+}
+.container .content .blog a:hover{
+    text-decoration: none;
+    color: #D92E2E;
+}
+.container .content .blog p{
+    color: #8c8c8c;
+    max-height: 40px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    word-break: break-all;  /*允许在单词内换行，更美观*/
+    display: -webkit-box;  /*元素作为box伸缩盒子*/
+    -webkit-line-clamp: 2;  /*设置文本行数限制*/
+    -webkit-box-orient: vertical;  /*设置文本排列方式*/
+}
+.container .content .blog .date{
+    height: 20px;
+    width: 100%;
+}
+.container .content .blog .date label{
+    color: #8c8c8c;
+}
+.container .content .blog .date span{
+    color: #8c8c8c;
+    height: 20px;
+    float: right;
+}
+.container .footer{
+    margin: 0 -15px 50px;
+    background-color: #fff;
+    height: 24px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
